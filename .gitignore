@@ -173,3 +173,5 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+db/bin/Debug/db.dll
+MySql.Data/bin/Debug/MySql.Data.dll

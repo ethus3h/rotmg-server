@@ -6,11 +6,10 @@ using System.Xml.Linq;
 using System.IO;
 using System.Xml.XPath;
 using System.Reflection;
+using System.Text.RegularExpressions;
 
 public class XmlDatas
 {
-    const int XML_COUNT = 36;
-
     static XmlDatas()
     {
         TypeToId = new Dictionary<short, string>();
@@ -21,16 +20,40 @@ public class XmlDatas
         ObjectDescs = new Dictionary<short, ObjectDesc>();
 
         Stream stream;
-        for (int i = 0; i < XML_COUNT; i++)
+
+        var assembly = typeof(XmlDatas).Assembly;
+        var names = assembly.GetManifestResourceNames();
+
+        var pattern = "^db.data.dat([0-9])+.xml";
+        var regex = new Regex(pattern, RegexOptions.IgnoreCase);
+
+        foreach (var name in names)
         {
-            stream = typeof(XmlDatas).Assembly.GetManifestResourceStream("db.data.dat" + i + ".xml");
-            ProcessXml(stream);
+            if (regex.IsMatch(name))
+            {
+                Console.WriteLine("Parsing " + name);
+                stream = typeof(XmlDatas).Assembly.GetManifestResourceStream(name);
+                try
+                {
+                    ProcessXml(stream);
+                }
+                catch (Exception ex)
+                {
+                    var prev = Console.ForegroundColor;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(ex.ToString());
+                    Console.ForegroundColor = prev;
+                }
+            }
         }
+
         stream = typeof(XmlDatas).Assembly.GetManifestResourceStream("db.data.addition.xml");
         ProcessXml(stream);
         stream.Position = 0;
+
         using (StreamReader rdr = new StreamReader(stream))
             AdditionXml = rdr.ReadToEnd();
+
     }
 
     static void ProcessXml(Stream stream)
