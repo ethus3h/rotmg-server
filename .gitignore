@@ -175,3 +175,8 @@ pip-log.txt
 .DS_Store
 db/bin/Debug/db.dll
 MySql.Data/bin/Debug/MySql.Data.dll
+wServer/bin/Release/MySql.Data.dll
+wServer/bin/Release/db.dll
+terrain/obj/Debug/terrain.exe
+terrain/bin/Release/MySql.Data.dll
+terrain/bin/Release/db.dll
