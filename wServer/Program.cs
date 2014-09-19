@@ -27,23 +27,31 @@ namespace wServer
 
         static void Main(string[] args)
         {
-            svrSkt = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            svrSkt.Bind(new IPEndPoint(IPAddress.Any, 2050));
-            svrSkt.Listen(0xff);
-            svrSkt.BeginAccept(Listen, null);
-            Console.CancelKeyPress += (sender, e) =>
+            try
             {
-                Console.WriteLine("Terminating...");
-                svrSkt.Close();
-                foreach (var i in RealmManager.Clients.Values.ToArray())
-                    i.Disconnect();
-                Environment.Exit(0);
-            };
-            Console.WriteLine("Listening at port 2050...");
+                svrSkt = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+                svrSkt.Bind(new IPEndPoint(IPAddress.Any, 2050));
+                svrSkt.Listen(0xff);
+                svrSkt.BeginAccept(Listen, null);
+                Console.CancelKeyPress += (sender, e) =>
+                {
+                    Console.WriteLine("Terminating...");
+                    svrSkt.Close();
+                    foreach (var i in RealmManager.Clients.Values.ToArray())
+                        i.Disconnect();
+                    Environment.Exit(0);
+                };
+                Console.WriteLine("Listening at port 2050...");
 
-            HostPolicyServer();
+                HostPolicyServer();
 
-            RealmManager.CoreTickLoop();    //Never returns
+                RealmManager.CoreTickLoop();    //Never returns
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.ToString());
+                Console.ReadLine();
+            }
         }
 
         static void ServePolicyFile(IAsyncResult ar)

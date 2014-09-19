@@ -7,7 +7,6 @@
         <StasisImmune/>
     </Object>
 
-    
     <Object type="0x0976" id="Dr Terrible">
         <Enemy/>
         <Class>Character</Class>
@@ -36,20 +35,7 @@
             <LifetimeMS>1000</LifetimeMS>
         </Projectile>
 
-
-
-
-
-
-
-
- 
-        
-        
     </Object>
-
-    
-
     <Object type="0x0892" id="Monster Cage">
         <Class>GameObject</Class>
         <OccupySquare/>
@@ -111,10 +97,6 @@
         </Projectile>
 
 
-
-
-
-
     </Object>
 
     <Object type="0x0994" id="Red Gas Spawner UR">
@@ -136,10 +118,6 @@
             <Size>100</Size>
             <LifetimeMS>5000</LifetimeMS>
         </Projectile>
-
-
-
-
 
 
     </Object>
@@ -165,10 +143,6 @@
         </Projectile>
 
 
-
-
-
-
     </Object>
 
     <Object type="0x0996" id="Red Gas Spawner LR">
@@ -190,10 +164,6 @@
             <Size>100</Size>
             <LifetimeMS>5000</LifetimeMS>
         </Projectile>
-
-
-
-
 
 
     </Object>
@@ -256,29 +226,26 @@
     
 
     <Object type="0x0979" id="Mini Bot">
-    <Enemy/>
-    <Class>Character</Class>
-    <Group>Mad Lab</Group>
-    <AnimatedTexture><File>chars8x8rEncounters</File><Index>38</Index></AnimatedTexture>
+      <Enemy/>
+      <Class>Character</Class>
+      <Group>Mad Lab</Group>
+      <AnimatedTexture><File>chars8x8rEncounters</File><Index>38</Index></AnimatedTexture>
 
-    <HitSound>monster/cubes_hit</HitSound>
-    <DeathSound>monster/cubes_death</DeathSound>
-    <Size>100</Size>
-    <ShadowSize>50</ShadowSize>
-    <MaxHitPoints>1500</MaxHitPoints>
-    <Defense>20</Defense>
+      <HitSound>monster/cubes_hit</HitSound>
+      <DeathSound>monster/cubes_death</DeathSound>
+      <Size>100</Size>
+      <ShadowSize>50</ShadowSize>
+      <MaxHitPoints>1500</MaxHitPoints>
+      <Defense>20</Defense>
 
-    <Projectile id="0">
-        <ObjectId>Purple Energy Shot</ObjectId>
-        <Damage>80</Damage>
-        <Speed>50</Speed>
-        <Size>100</Size>
-        <LifetimeMS>2000</LifetimeMS>
-        <ConditionEffect duration=".5">Confused</ConditionEffect>
-    </Projectile>
-
-
-
+      <Projectile id="0">
+          <ObjectId>Purple Energy Shot</ObjectId>
+          <Damage>80</Damage>
+          <Speed>50</Speed>
+          <Size>100</Size>
+          <LifetimeMS>2000</LifetimeMS>
+          <ConditionEffect duration=".5">Confused</ConditionEffect>
+      </Projectile>
 
     </Object>
 
@@ -897,8 +864,6 @@
 
 
     </Object>
-
-    
 
 
 </Objects>

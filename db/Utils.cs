@@ -35,4 +35,13 @@ public static class Utils
     {
         return x.Split(',').Select(_ => (short)FromString(_.Trim())).ToArray();
     }
+
+    public static float FloatFromString(string x)
+    {
+        if (x.StartsWith("."))
+        {
+            x = "0" + x;
+        }
+        return float.Parse(x);
+    }
 }

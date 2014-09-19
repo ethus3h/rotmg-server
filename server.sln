@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "server", "server\server.csproj", "{205FBF65-3677-4A3F-A0F2-3D0C4C647184}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "wServer", "wServer\wServer.csproj", "{D791B2A2-F79D-4872-B6FF-EF5B4FE52ADA}"
@@ -73,8 +75,8 @@ Global
 		{D5D0743E-5120-4D35-8EBE-9B063C7A73CE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{D5D0743E-5120-4D35-8EBE-9B063C7A73CE}.Release|x86.ActiveCfg = Release|Any CPU
 		{1DEFECC4-6DAE-484A-98DD-675C207236C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1DEFECC4-6DAE-484A-98DD-675C207236C3}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{1DEFECC4-6DAE-484A-98DD-675C207236C3}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{1DEFECC4-6DAE-484A-98DD-675C207236C3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{1DEFECC4-6DAE-484A-98DD-675C207236C3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
 		{1DEFECC4-6DAE-484A-98DD-675C207236C3}.Debug|x86.ActiveCfg = Debug|x86
 		{1DEFECC4-6DAE-484A-98DD-675C207236C3}.Debug|x86.Build.0 = Debug|x86
 		{1DEFECC4-6DAE-484A-98DD-675C207236C3}.Release|Any CPU.ActiveCfg = Release|x86

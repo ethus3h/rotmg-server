@@ -22,28 +22,36 @@ namespace server
 
         static void Main(string[] args)
         {
-            dbaddr = db.confreader.getservers(true);
-            listener = new HttpListener();
-            listener.Prefixes.Add("http://*:" + port + "/");
-            listener.Start();
-            listen = new Thread(ListenerCallback);
-            listen.Start();
-            for (var i = 0; i < workers.Length; i++)
+            try
             {
-                workers[i] = new Thread(Worker);
-                workers[i].Start();
-            }
-            Console.CancelKeyPress += (sender, e) =>
-            {
-                Console.WriteLine("Terminating...");
-                listener.Stop();
-                while (contextQueue.Count > 0)
-                    Thread.Sleep(100);
-                Environment.Exit(0);
-            };
-            Console.WriteLine("Listening at port " + port + "...");
+                dbaddr = db.confreader.getservers(true);
+                listener = new HttpListener();
+                listener.Prefixes.Add("http://*:" + port + "/");
+                listener.Start();
+                listen = new Thread(ListenerCallback);
+                listen.Start();
+                for (var i = 0; i < workers.Length; i++)
+                {
+                    workers[i] = new Thread(Worker);
+                    workers[i].Start();
+                }
+                Console.CancelKeyPress += (sender, e) =>
+                {
+                    Console.WriteLine("Terminating...");
+                    listener.Stop();
+                    while (contextQueue.Count > 0)
+                        Thread.Sleep(100);
+                    Environment.Exit(0);
+                };
+                Console.WriteLine("Listening at port " + port + "...");
 
-            Thread.CurrentThread.Join();
+                Thread.CurrentThread.Join();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.ToString());
+                Console.ReadLine();
+            }
         }
 
         static void ListenerCallback()
